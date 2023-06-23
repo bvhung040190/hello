@@ -1,7 +1,14 @@
-var http = require('http');
+const express = require('express')
+const app = express()
 
-//create a server object:
-http.createServer(function (req, res) {
-  res.write('Hello World!'); //write a response to the client
-  res.end(); //end the response
-}).listen(8080); //the server object listens on port 8080
+// respond with "hello world" when a GET request is made to the homepage
+app.get('/', (req, res) => {
+  res.send('hello world')
+})
+app.get('/about',(req,res)=>{
+  res.send('Thong tin chi tiet');
+  res.send('ket thuc');
+})
+app.listen(3000,()=>{
+  console.log("thanh cong");
+});
